@@ -45,7 +45,7 @@ vim.opt.foldlevel = 1
 vim.opt.list = false
 vim.opt.foldnestmax = 10
 vim.opt.signcolumn = 'yes'
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.foldenable = false
 vim.opt.cursorline = true
 

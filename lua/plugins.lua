@@ -117,7 +117,7 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-jdaddy' }
   use { 'tpope/vim-fugitive' }
   use { 'github/copilot.vim', config = lua_path"copilot" }
-  
+
   -- Folke
   use { 'folke/trouble.nvim' }
   use { 'folke/todo-comments.nvim', config = lua_path"todo-comments" }
@@ -150,4 +150,6 @@ return require('packer').startup(function(use)
   use { 'luukvbaal/stabilize.nvim', config = lua_path"stabilize" }
   use { 'beauwilliams/focus.nvim', config = lua_path"focus" }
   use { 'kevinhwang91/nvim-bqf' }
+  use { 'junegunn/fzf' }
+  use { 'junegunn/fzf.vim' }
 end)

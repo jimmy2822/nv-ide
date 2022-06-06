@@ -9,9 +9,9 @@ vim.keymap.set('n', '<F7>', ':NvimTreeToggle<CR>', {noremap = false, silent = tr
 vim.keymap.set('n', '<F8>', ':MinimapToggle<CR>', {noremap = false, silent = true})
 vim.keymap.set('n', '<leader>nm', ':Dispatch npm start<CR>', {noremap = false, silent = false})
 -- Buffers
-vim.keymap.set('n', '<leader>bda', ':BufferCloseAllButCurrent<CR>', {noremap = false, silent = false})
-vim.keymap.set('n', '<leader>bn', ':BufferNext<CR>', {noremap = false, silent = false})
-vim.keymap.set('n', '<leader>bp', ':BufferPrevious<CR>', {noremap = false, silent = false})
+vim.keymap.set('n', '<S-q>', ':bw<CR>', {noremap = false, silent = false})
+vim.keymap.set('n', '<S-h>', ':BufferNext<CR>', {noremap = false, silent = true})
+vim.keymap.set('n', '<S-l>', ':BufferPrevious<CR>', {noremap = false, silent = true})
 -- Git
 vim.keymap.set('n', '<leader>gf', ':20G<CR>', {noremap = false, silent = false})
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {noremap = false, silent = false})
@@ -95,3 +95,8 @@ vim.keymap.set("n", "<leader>dcc", "<cmd>lua require'telescope'.extensions.dap.c
 vim.keymap.set("n", "<leader>dlb", "<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>dv", "<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>df", "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", {silent = true, noremap = true})
+
+-- FZF
+vim.keymap.set("n", "<C-C>", ":FZF<cr>", {silent = true, noremap = true})
+vim.keymap.set("n", "<C-c>", ":FZF<cr>", {silent = true, noremap = true})
+vim.keymap.set("n", "<leader>gg", ":Ag<cr>", {silent = true, noremap = true})
