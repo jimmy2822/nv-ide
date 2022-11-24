@@ -1,6 +1,6 @@
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
-local gps = require("nvim-gps")
+local gps = require("nvim-navic")
 
 local force_inactive = {
   filetypes = {},
