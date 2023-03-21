@@ -45,9 +45,13 @@ vim.opt.foldlevel = 1
 vim.opt.list = false
 vim.opt.foldnestmax = 10
 vim.opt.signcolumn = 'yes'
-vim.opt.relativenumber = false
 vim.opt.foldenable = false
 vim.opt.cursorline = true
+
+-- Better Whitespace
+vim.g.better_whitespace_enabled = 1
+vim.g.strip_whitespace_on_save = 1
+vim.g.strip_whitespace_confirm = 0
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()

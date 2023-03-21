@@ -26,35 +26,36 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim' }
 
-  -- LSP
-  use { 'neovim/nvim-lspconfig' }
-  use { 'onsails/lspkind-nvim' }
-  use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
-
-  -- Autocomplete
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-vsnip' }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-calc' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'ray-x/cmp-treesitter' }
-  use { 'lukas-reineke/cmp-rg' }
-  use { 'quangnguyen30192/cmp-nvim-tags' }
-  use { 'rafamadriz/friendly-snippets' }
-  use { 'windwp/nvim-autopairs', config = lua_path"nvim-autopairs" }
-  use { 'windwp/nvim-ts-autotag', config = lua_path"nvim-ts-autotag" }
-  use { 'andymass/vim-matchup' }
-
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path"treesitter" }
-  use { 'p00f/nvim-ts-rainbow', config = lua_path"nvim-ts-rainbow" }
+  -- Treesitter                                                                                                                      
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+    config = lua_path"treesitter"
+  }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+  use { 'feline-nvim/feline.nvim', config = lua_path"feline" }                                                   
   use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'lewis6991/nvim-treesitter-context' }
-  use { 'SmiteshP/nvim-gps', config = lua_path"nvim-gps" }
+
+  -- Elixir
+  use { 'mhanberg/elixir.nvim' }
+
+  -- autocomplete and snippets
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-vsnip")
+  use("hrsh7th/vim-vsnip")
+
+  -- Lsp
+  use { 'neovim/nvim-lspconfig' }
+  use ("onsails/lspkind-nvim")
 
   -- Syntax
   use { 'chrisbra/csv.vim' }
@@ -68,8 +69,7 @@ return require('packer').startup(function(use)
   use { 'ryanoasis/vim-devicons' }
 
   -- Status Line and Bufferline
-  use { 'famiu/feline.nvim', config = lua_path"feline" }
-  use { 'romgrk/barbar.nvim' }
+  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
 
   -- Telescope
   use { 'nvim-lua/popup.nvim' }
@@ -81,7 +81,15 @@ return require('packer').startup(function(use)
   use { 'pwntester/octo.nvim', config = lua_path"octo" }
 
   -- Explorer
-  use { 'kyazdani42/nvim-tree.lua', config = lua_path"nvimtree" }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 
   -- Color
   use { 'crivotz/nvim-colorizer.lua', config = lua_path"colorizer" }
@@ -116,7 +124,6 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-dadbod' }
   use { 'tpope/vim-jdaddy' }
   use { 'tpope/vim-fugitive' }
-  use { 'github/copilot.vim', config = lua_path"copilot" }
 
   -- Folke
   use { 'folke/trouble.nvim' }
@@ -129,9 +136,6 @@ return require('packer').startup(function(use)
   -- Colorschema
   use { 'sainnhe/gruvbox-material' }
   use { 'stevearc/dressing.nvim', config = lua_path"dressing" }
-
-  -- Tags
-  use { 'ludovicchabant/vim-gutentags', config = lua_path"vim-gutentags" }
 
   -- Debugger
   use { 'mfussenegger/nvim-dap', config = lua_path"nvim-dap" }
@@ -146,10 +150,10 @@ return require('packer').startup(function(use)
   use { 'jeffkreeftmeijer/vim-numbertoggle' }
   use { 'lambdalisue/suda.vim' }
   use { 'numtostr/FTerm.nvim', config = lua_path"fterm" }
-  use { 'wfxr/minimap.vim', config = lua_path"minimap" }
   use { 'luukvbaal/stabilize.nvim', config = lua_path"stabilize" }
   use { 'beauwilliams/focus.nvim', config = lua_path"focus" }
   use { 'kevinhwang91/nvim-bqf' }
   use { 'junegunn/fzf' }
   use { 'junegunn/fzf.vim' }
+  use { 'ntpeters/vim-better-whitespace' }
 end)

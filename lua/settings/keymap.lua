@@ -5,13 +5,14 @@ vim.keymap.set('n', '<F4>', ':set number! relativenumber!<CR>', {noremap = true,
 vim.keymap.set('n', '<F5>', ':set list! list?<CR>', {noremap = false, silent = false})
 vim.keymap.set('n', '<F6>', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<F6>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<F7>', ':NvimTreeToggle<CR>', {noremap = false, silent = true})
 vim.keymap.set('n', '<F8>', ':MinimapToggle<CR>', {noremap = false, silent = true})
 vim.keymap.set('n', '<leader>nm', ':Dispatch npm start<CR>', {noremap = false, silent = false})
 -- Buffers
 vim.keymap.set('n', '<S-q>', ':bw<CR>', {noremap = false, silent = false})
-vim.keymap.set('n', '<S-h>', ':BufferNext<CR>', {noremap = false, silent = true})
-vim.keymap.set('n', '<S-l>', ':BufferPrevious<CR>', {noremap = false, silent = true})
+vim.keymap.set('n', '<S-l>', ':BufferNext<CR>', {noremap = false, silent = true})
+vim.keymap.set('n', '<S-h>', ':BufferPrevious<CR>', {noremap = false, silent = true})
+vim.keymap.set('n', '<S-j>', ':BufferMovePrevious<CR>', {noremap = false, silent = true})
+vim.keymap.set('n', '<S-k>', ':BufferMoveNext<CR>', {noremap = false, silent = true})
 -- Git
 vim.keymap.set('n', '<leader>gf', ':20G<CR>', {noremap = false, silent = false})
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {noremap = false, silent = false})
@@ -28,16 +29,6 @@ vim.keymap.set('n', 'f', '<Plug>Lightspeed_f', {noremap = false, silent = false}
 vim.keymap.set('n', 'F', '<Plug>Lightspeed_F', {noremap = false, silent = false})
 vim.keymap.set('n', 't', '<Plug>Lightspeed_t', {noremap = false, silent = false})
 vim.keymap.set('n', 'T', '<Plug>Lightspeed_T', {noremap = false, silent = false})
--- LSP
-vim.keymap.set('n', '<space>,', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>;', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>a', ':lua vim.lsp.diagnostic.code_action()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>d', ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>f', ':lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>h', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>m', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>r', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<space>s', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
 -- Telescope
 vim.keymap.set('n', '<leader>r', ":lua require('telescope.builtin').live_grep()<CR>", {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>#', ":lua require('telescope.builtin').grep_string()<CR>", {noremap = true, silent = true})
@@ -53,7 +44,7 @@ vim.keymap.set('n', '<leader>ns', ":lua require('plugins.telescope').my_note()<C
 vim.keymap.set('n', '<leader>nn', ":lua NewNote()<CR>", {noremap = true, silent = false})
 vim.keymap.set('n', '<leader>n', ":lua require('plugins.scratches').open_scratch_file_floating()<CR>", {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>gc', ':Octo issue create<CR>', {noremap = true, silent = false})
-vim.keymap.set('n', '<leader>i', ':Octo issue list<CR>', {noremap = true, silent = false})
+-- vim.keymap.set('n', '<leader>i', ':Octo issue list<CR>', {noremap = true, silent = false})
 vim.keymap.set('n', '<leader>y', ':Telescope neoclip<CR>', {noremap = true, silent = false})
 vim.keymap.set('n', '<leader>ll', ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('GREP -> ') })<CR>", {noremap = true, silent = true})
 -- HlsLens
@@ -65,8 +56,6 @@ vim.keymap.set('n', 'g*', "g*<Cmd>lua require('hlslens').start()<CR>", { noremap
 vim.keymap.set('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", { noremap = true })
 -- Todo-comments
 vim.keymap.set('n', '<leader>to', ':TodoTelescope<CR>', {noremap = true, silent = false})
--- Copilot
-vim.keymap.set('i', '<C-J>', 'copilot#Accept()', {noremap = true, silent = true, expr = true})
 -- Move.nvim
 vim.keymap.set('n', '<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
@@ -99,4 +88,7 @@ vim.keymap.set("n", "<leader>df", "<cmd>lua require'telescope'.extensions.dap.fr
 -- FZF
 vim.keymap.set("n", "<C-C>", ":FZF<cr>", {silent = true, noremap = true})
 vim.keymap.set("n", "<C-c>", ":FZF<cr>", {silent = true, noremap = true})
-vim.keymap.set("n", "<leader>gg", ":Ag<cr>", {silent = true, noremap = true})
+vim.keymap.set("n", "<C-g>", ":Ag<cr>", {silent = true, noremap = true})
+
+-- Better Whitcespace
+vim.keymap.set('n', '<C-o>', ':NeoTreeShow<CR>', {noremap = true, silent = false})
