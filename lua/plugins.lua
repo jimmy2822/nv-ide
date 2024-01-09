@@ -114,6 +114,9 @@ return require('packer').startup(function(use)
   -- Tmux
   use { 'christoomey/vim-tmux-navigator' }
 
+  -- LSP
+  use { 'neovim/nvim-lspconfig' }
+
   -- Colorschema
   use { 'sainnhe/gruvbox-material' }
   use { 'stevearc/dressing.nvim', config = lua_path"dressing" }

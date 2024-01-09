@@ -8,3 +8,5 @@ require('settings.font')
 require('settings.filetype')
 -- Keymap
 require('settings.keymap')
+-- LSP
+require('settings.lsp')
