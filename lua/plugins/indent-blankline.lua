@@ -1,9 +1,12 @@
-require("indent_blankline").setup {
-  buftype_exclude = {'terminal'},
-  filetype_exclude = {'help', 'startify', 'alpha', 'dashboard', 'packer', 'neogitstatus', 'NvimTree'},
-  char = '▏',
-  show_current_context = true,
-  show_current_context_start = true,  -- underline first line
-  use_treesitter = true,
-  show_trailing_blankline_indent = false,
-}
+require("ibl").setup({
+  enabled = true,
+  scope = {
+    show_start = true,  -- underline first line
+    show_end = false
+  },
+  exclude = {
+    buftypes = {'terminal'},
+    filetypes = {'help', 'startify', 'alpha', 'dashboard', 'packer', 'neogitstatus', 'NvimTree'},
+  },
+  indent = { char = '▏' },
+})

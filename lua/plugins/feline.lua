@@ -1,6 +1,5 @@
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
-local gps = require("nvim-navic")
 
 local force_inactive = {
   filetypes = {},
@@ -319,16 +318,6 @@ components.inactive[1][1] = {
 
 -- WINBAR
 -- LEFT
-
--- nvimGps
-winbar_components.active[1][1] = {
-  provider = function() return gps.get_location() end,
-  enabled = function() return gps.is_available() end,
-  hl = {
-    fg = 'orange',
-    style = 'bold'
-  }
-}
 
 -- MID
 

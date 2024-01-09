@@ -26,36 +26,17 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim' }
 
-  -- Treesitter                                                                                                                      
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
-    config = lua_path"treesitter"
-  }
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }
-  use { 'feline-nvim/feline.nvim', config = lua_path"feline" }                                                   
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'feline-nvim/feline.nvim', config = lua_path"feline" }
   use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'lewis6991/nvim-treesitter-context' }
 
-  -- Elixir
-  use { 'mhanberg/elixir.nvim' }
-
   -- autocomplete and snippets
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-vsnip")
-  use("hrsh7th/vim-vsnip")
-
-  -- Lsp
-  use { 'neovim/nvim-lspconfig' }
-  use ("onsails/lspkind-nvim")
+  use( "hrsh7th/nvim-cmp" )
+  use( "hrsh7th/cmp-vsnip" )
+  use( "hrsh7th/vim-vsnip" )
 
   -- Syntax
   use { 'chrisbra/csv.vim' }
@@ -84,7 +65,7 @@ return require('packer').startup(function(use)
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    requires = { 
+    requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
