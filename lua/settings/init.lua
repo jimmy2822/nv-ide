@@ -53,6 +53,7 @@ vim.g.better_whitespace_enabled = 1
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
 
+-- GoLang
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()
     local last_pos = vim.fn.line("'\"")

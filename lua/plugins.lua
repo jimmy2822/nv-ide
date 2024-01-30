@@ -34,9 +34,16 @@ return require('packer').startup(function(use)
   use { 'lewis6991/nvim-treesitter-context' }
 
   -- autocomplete and snippets
-  use( "hrsh7th/nvim-cmp" )
-  use( "hrsh7th/cmp-vsnip" )
-  use( "hrsh7th/vim-vsnip" )
+  use { "hrsh7th/cmp-vsnip"  }
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "hrsh7th/cmp-buffer" }
+  use { "hrsh7th/cmp-path" }
+  use { "hrsh7th/vim-vsnip"  }
+  use { "hrsh7th/nvim-cmp"   }
+
+  -- GoLang
+  use { 'ray-x/go.nvim' }
+  use { 'ray-x/guihua.lua' }
 
   -- Syntax
   use { 'chrisbra/csv.vim' }

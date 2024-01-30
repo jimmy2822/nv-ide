@@ -91,3 +91,7 @@ vim.keymap.set("n", "<C-g>", ":Ag<cr>", {silent = true, noremap = true})
 
 -- Better Whitcespace
 vim.keymap.set('n', '<C-o>', ':NeoTreeShow<CR>', {noremap = true, silent = false})
+
+-- GoLang
+vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
+vim.cmd("autocmd FileType go nmap <Leader>gc :lua require('go.comment').gen()")
