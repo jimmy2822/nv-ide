@@ -27,8 +27,8 @@ return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'feline-nvim/feline.nvim', config = lua_path"feline" }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path("treesitter") }
+  use { 'feline-nvim/feline.nvim', config = lua_path("feline") }
   use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'lewis6991/nvim-treesitter-context' }
