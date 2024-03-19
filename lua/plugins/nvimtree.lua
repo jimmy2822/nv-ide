@@ -1,4 +1,7 @@
 vim.g.nvim_tree_auto_ignore_ft = 'startify'
+-- show hidden files
+vim.g.NERDTreeShowHidden = 1
+
 -- following options are the default
 require'nvim-tree'.setup {
   -- disables netrw completely

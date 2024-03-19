@@ -211,7 +211,9 @@ return require('packer').startup(function(use)
   -- Debugger
   use { 'mfussenegger/nvim-dap', config = lua_path("nvim-dap") }
   use { 'rcarriga/nvim-dap-ui', config = lua_path("nvim-dap-ui") }
+  use {'nvim-neotest/neotest', requires = {'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter'}}
   use { 'theHamsta/nvim-dap-virtual-text', config = lua_path("nvim-dap-virtual-text") }
+  use { "nvim-neotest/nvim-nio" }
 
   -- General Plugins
   use { 'machakann/vim-sandwich', config = lua_path("sandwich") }
